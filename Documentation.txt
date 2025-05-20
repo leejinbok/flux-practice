@@ -91,3 +91,7 @@ flux bootstrap github \
 6. Installing another repo
 # installing podinfo from this link: https://github.com/stefanprodan/podinfo.git
 - vim podinfo-repo.yaml
+- vim podinfo-kustomization.yaml
+
+# git add, commit, and push **may nee to pull first
+- flux get kustomizations --watch
