@@ -63,3 +63,31 @@ CoreDNS is running at https://127.0.0.1:39329/api/v1/namespaces/kube-system/serv
 
 # bonus- usage file:
 - wget https://kind.sigs.k8s.io/examples/ingress/usage.yaml
+
+
+5. Install flux
+# Install homebrew
+- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Install flux with homebrew
+- brew install fluxcd/tap/flux
+
+# pull git repo 
+- git pull (insert git repo here)
+# create directory
+- mkdir -p clusters/my-cluster/flux-system
+# create gotk and kustomization files
+- touch gotk-components.yaml gotk-sync.yaml kustomization.yaml
+# commit and push to git
+
+# bootstrap flux
+flux bootstrap github \
+> --token-auth \
+> --owner=leejinbok \
+> --repository=flux-practice \
+> --branch=main \
+> --path=clusters/my-cluster \
+> --personal
+
+6. Installing another repo
+# installing podinfo from this link: https://github.com/stefanprodan/podinfo.git
+- vim podinfo-repo.yaml
