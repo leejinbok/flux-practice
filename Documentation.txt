@@ -90,8 +90,14 @@ flux bootstrap github \
 
 6. Installing another repo
 # installing podinfo from this link: https://github.com/stefanprodan/podinfo.git
+# create a podinfo-repo manifest that describes GitRepository kind and apiVersion with source.toolkit.fluxcd.io/v1
+# describe name and namespace in metadata
 - vim podinfo-repo.yaml
+# create a podinfo-kustomization manifest that describes a Kustomization kind and apiVersion with kustomize.toolkit.fluxcd.io/v1
+# describe name and namespace in metadata
+# make sure to include sourceRef with kind and name; and targetNamespace
 - vim podinfo-kustomization.yaml
 
-# git add, commit, and push **may nee to pull first
+# git add, commit, and push **may need to pull first
+# once successfully pushed, watch flux kustomizations as it automatically pulls from podinfo GitRepository and installs it into the cluster
 - flux get kustomizations --watch
