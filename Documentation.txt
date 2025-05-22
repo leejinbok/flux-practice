@@ -101,3 +101,4 @@ flux bootstrap github \
 # git add, commit, and push **may need to pull first
 # once successfully pushed, watch flux kustomizations as it automatically pulls from podinfo GitRepository and installs it into the cluster
 - flux get kustomizations --watch
+
